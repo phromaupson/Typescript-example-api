@@ -11,22 +11,6 @@ app.use(cors());
 
 app.use("/api", studentRoute);
 
-app.use(() => {
-  throw createHttpError(404, "not found");
-}); //ให้แอพใช้ http error
-
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  console.log(err.message, err.statusCode);
-  if (res.headersSent) {
-    return next(err);
-  }
-  res
-    .status(err.statusCode || 500)
-    .json({ message: err.message || "An Unknown Error" });
-}; //จัดรูปแบบ errorHandler ให้อยู่ใน ErrorRequestHandler
-
-app.use(errorHandler);
-//เชื่อมต่อ database
 mongoose
   .connect(
     "mongodb+srv://kamkon007:kamkon007@cluster0.wourw.mongodb.net/Student_example?retryWrites=true&w=majority"

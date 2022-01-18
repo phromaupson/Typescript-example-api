@@ -39,7 +39,7 @@ const CreateStudent = (req, res) => {
 exports.CreateStudent = CreateStudent;
 const UpdateStudent = (req, res) => {
     User_1.default.findOneAndUpdate({ name: req.params.name }, {
-        $set: req.body,
+        $set: req.body, //เปลี่ยนแปลงที่ได้รับมาจาก req.body
     }, { new: true }, //ขอแสดงข้อมูลใหม่ที่อัพเดตแล้ว
     (err, result) => {
         if (err) {

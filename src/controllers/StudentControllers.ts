@@ -41,7 +41,7 @@ export const UpdateStudent: RequestHandler = (req: Request, res: Response) => {
   User.findOneAndUpdate(
     { name: req.params.name },
     {
-      $set: req.body,
+      $set: req.body, //เปลี่ยนแปลงที่ได้รับมาจาก req.body
     },
     { new: true }, //ขอแสดงข้อมูลใหม่ที่อัพเดตแล้ว
     (err: any, result: any) => {
