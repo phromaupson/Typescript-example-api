@@ -6,6 +6,6 @@
 # install package
 $ npm install
 
-# Start server and hot reload at localhost:4200
+# Start server and hot reload at localhost:9000
 $ npm run dev
 ```
